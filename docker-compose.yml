@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  project-db:
+    container_name: project-db
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=project
+    volumes:
+      - db-config:/etc/mysql
+      - db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  project-svc:
+    container_name: project-svc
+    restart: always
+    build:
+      context: .
+      target: dev
+    volumes:
+      - ./src:/app/src/
+      - ./uploads:/app/uploads/
+    ports:
+      - 3010:3010
+    depends_on:
+      - project-db
+    links:
+      - project-db
+
+volumes:
+  db-config:
+  db-data:

@@ -1,5 +1,5 @@
-'use strict';
-const Role = require('../models').Role;
+"use strict";
+const Role = require("../models").Role;
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -24,10 +24,10 @@ module.exports = {
       ];
       return await Role.bulkCreate(data);
     }
-    console.log('Role seed has already been performed')
+    console.log("Role seed has already been performed");
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('tickets', null, {});
+    return queryInterface.bulkDelete("roles", null, {});
   },
 };

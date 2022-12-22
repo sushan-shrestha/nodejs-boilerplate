@@ -1,8 +1,7 @@
 {
-  "name": "outcode-time-tracker",
+  "name": "project-name",
   "version": "1.0.0",
   "main": "src/index.js",
-  "repository": "git@github.com:OutCode-Software/ClockifyClone-Backend.git",
   "license": "MIT",
   "scripts": {
     "make:migration": "./node_modules/.bin/sequelize migration:generate --name",
