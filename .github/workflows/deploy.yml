@@ -57,5 +57,3 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: restart docker-compose
         run: docker-compose stop && docker-compose up -d
-      - name: migrate tables
-        run: docker exec project-svc yarn migrate
